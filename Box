@@ -1,0 +1,23 @@
+/*Create a class box with length, breadth and height as instance variables. Write
+suitable constructors for this class also create a instance method to print the volume
+of the box..*/
+public class Box {
+    private double length;
+    private double breadth;
+    private double height;
+    public Box(double length, double breadth, double height) {
+        this.length = length;
+        this.breadth = breadth;
+        this.height = height;
+    }
+    public Box() {
+    }
+    public void printVolume() {
+        double volume = length * breadth * height;
+        System.out.println("Volume of the box is: " + volume);
+    }
+    public static void main(String[] args) {
+        Box myBox = new Box(5.0, 3.0, 2.0);
+        myBox.printVolume();
+    }
+}
