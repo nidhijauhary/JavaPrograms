@@ -1,0 +1,128 @@
+/*Write a Java program to create a vehicle class hierarchy. The base class should be Vehicle which is an
+abstract class. It has subclasses Truck, Car and Motorcycle. Each subclass should have properties such as
+make, model, year, and fuel type. Implement methods for calculating fuel efficiency, distance traveled,
+and maximum speed.*/
+abstract class Vehicle {
+    private String make;
+    private String model;
+    private int year;
+    private String fuelType;
+    public Vehicle(String make, String model, int year, String fuelType) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.fuelType = fuelType;
+    }
+    public abstract double calculateFuelEfficiency();
+    public abstract double calculateDistanceTraveled(double fuelConsumed);
+    public abstract int calculateMaxSpeed();
+    public String getMake() {
+        return make;
+    }
+    public String getModel() {
+        return model;
+    }
+    public int getYear() {
+        return year;
+    }
+    public String getFuelType() {
+        return fuelType;
+    }
+}
+class Truck extends Vehicle {
+    private int cargoCapacity;
+
+    public Truck(String make, String model, int year, String fuelType, int cargoCapacity) {
+        super(make, model, year, fuelType);
+        this.cargoCapacity = cargoCapacity;
+    }
+    @Override
+    public double calculateFuelEfficiency() {
+        return 5.0;
+    }
+    @Override
+    public double calculateDistanceTraveled(double fuelConsumed) {
+        return fuelConsumed * calculateFuelEfficiency();
+    }
+    @Override
+    public int calculateMaxSpeed() {
+        return 80; 
+    }
+    public int getCargoCapacity() {
+        return cargoCapacity;
+    }
+}
+class Car extends Vehicle {
+    public Car(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+    @Override
+    public double calculateFuelEfficiency() {
+        return 25.0;
+    }
+    @Override
+    public double calculateDistanceTraveled(double fuelConsumed) {
+        return fuelConsumed * calculateFuelEfficiency();
+    }
+    @Override
+    public int calculateMaxSpeed() {
+        return 120; 
+    }
+}
+class Motorcycle extends Vehicle {
+    public Motorcycle(String make, String model, int year, String fuelType) {
+        super(make, model, year, fuelType);
+    }
+    @Override
+    public double calculateFuelEfficiency() {
+        return 50.0; 
+    }
+    @Override
+    public double calculateDistanceTraveled(double fuelConsumed) {
+        return fuelConsumed * calculateFuelEfficiency();
+    }
+    @Override
+    public int calculateMaxSpeed() {
+        return 150;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Truck myTruck = new Truck("Ford", "F-150", 2020, "Diesel", 2000);
+        Car myCar = new Car("Toyota", "Camry", 2021, "Gasoline");
+        Motorcycle myMotorcycle = new Motorcycle("Honda", "CBR600RR", 2019, "Gasoline");
+        System.out.println("Truck Details:");
+        System.out.println("Make: " + myTruck.getMake());
+        System.out.println("Model: " + myTruck.getModel());
+        System.out.println("Year: " + myTruck.getYear());
+        System.out.println("Fuel Type: " + myTruck.getFuelType());
+        System.out.println("Cargo Capacity: " + myTruck.getCargoCapacity());
+        System.out.println("Fuel Efficiency: " + myTruck.calculateFuelEfficiency() + " mpg");
+        System.out.println("Max Speed: " + myTruck.calculateMaxSpeed() + " mph");
+        System.out.println("\nCar Details:");
+        System.out.println("Make: " + myCar.getMake());
+        System.out.println("Model: " + myCar.getModel());
+        System.out.println("Year: " + myCar.getYear());
+        System.out.println("Fuel Type: " + myCar.getFuelType());
+        System.out.println("Fuel Efficiency: " + myCar.calculateFuelEfficiency() + " mpg");
+        System.out.println("Max Speed: " + myCar.calculateMaxSpeed() + " mph");
+        System.out.println("\nMotorcycle Details:");
+        System.out.println("Make: " + myMotorcycle.getMake());
+        System.out.println("Model: " + myMotorcycle.getModel());
+        System.out.println("Year: " + myMotorcycle.getYear());
+        System.out.println("Fuel Type: " + myMotorcycle.getFuelType());
+        System.out.println("Fuel Efficiency: " + myMotorcycle.calculateFuelEfficiency() + " mpg");
+        System.out.println("Max Speed: " + myMotorcycle.calculateMaxSpeed() + " mph");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
