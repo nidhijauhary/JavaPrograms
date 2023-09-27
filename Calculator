@@ -15,4 +15,17 @@ public class Calculator {
         return average;
     }
 }
+public class Tester {
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        
+        double num1 = 65.0;
+        double num2 = 175.0;
+        double num3 = 85.0;
+        
+        double average = calculator.findAverage(num1, num2, num3);
+        
+        System.out.println("The average is: " + average);
+    }
+}
 
