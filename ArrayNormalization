@@ -1,0 +1,35 @@
+/*Write a program to create an int array of 10 elements. Take input from the user and write a method
+to normalize the array elements after finding the lowest value in it..*/
+import java.util.Scanner;
+public class ArrayNormalization {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] arr = new int[10];
+        System.out.println("Enter 10 integers:");
+        for (int i = 0; i < 10; i++) {
+            System.out.print("Enter element " + (i + 1) + ": ");
+            arr[i] = scanner.nextInt();
+        }
+        int minValue = findMinValue(arr);
+        normalizeArray(arr, minValue);
+        System.out.println("Normalized Array:");
+        for (int i = 0; i < 10; i++) {
+            System.out.println("Element " + (i + 1) + ": " + arr[i]);
+        }
+        scanner.close();
+    }
+    public static int findMinValue(int[] arr) {
+        int minValue = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] < minValue) {
+                minValue = arr[i];
+            }
+        }
+        return minValue;
+    }
+    public static void normalizeArray(int[] arr, int minValue) {
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] -= minValue;
+        }
+    }
+}
