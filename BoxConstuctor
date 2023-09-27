@@ -1,0 +1,50 @@
+/*Create 0 arg 3 arg and 4 arg constructor In the Box class having length, breadth,
+height and weight as instance members. Now chain the constructors of Box class
+using this() constructor call.*/
+public class Box {
+    private double length;
+    private double breadth;
+    private double height;
+    private double weight;
+    public Box() {
+        this(1.0, 1.0, 1.0, 0.0); // Call the 4-arg constructor with default values
+    }
+
+    // 3-argument constructor
+    public Box(double length, double breadth, double height) {
+        this(length, breadth, height, 0.0); // Call the 4-arg constructor with weight = 0.0
+    }
+
+    // 4-argument constructor
+    public Box(double length, double breadth, double height, double weight) {
+        this.length = length;
+        this.breadth = breadth;
+        this.height = height;
+        this.weight = weight;
+    }
+
+    // Instance method to print the box details
+    public void printBoxDetails() {
+        System.out.println("Length: " + length);
+        System.out.println("Breadth: " + breadth);
+        System.out.println("Height: " + height);
+        System.out.println("Weight: " + weight);
+    }
+
+    public static void main(String[] args) {
+        // Create a Box object using different constructors
+        Box box1 = new Box();
+        Box box2 = new Box(2.0, 3.0, 4.0);
+        Box box3 = new Box(5.0, 6.0, 7.0, 10.0);
+
+        // Print the details of the boxes
+        System.out.println("Box 1 Details:");
+        box1.printBoxDetails();
+
+        System.out.println("Box 2 Details:");
+        box2.printBoxDetails();
+
+        System.out.println("Box 3 Details:");
+        box3.printBoxDetails();
+    }
+}
