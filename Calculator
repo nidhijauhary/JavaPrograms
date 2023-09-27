@@ -1,0 +1,18 @@
+/*Implement a class Calculator with the method mentioned below.
+Method Description
+findAverage()
+-> Calculate the average of three numbers
+-> Return the average rounded off to two decimal digits
+Test the functionalities using the provided Tester class.
+Hint: For round-off to two decimal digits:
+double num1 = 65, num2 = 175;
+double num3 = num1/num2;
+System.out.println(Math.round(num3*100.0)/100.0);*/
+public class Calculator {
+    public double findAverage(double num1, double num2, double num3) {
+        double average = (num1 + num2 + num3) / 3.0;
+        average = Math.round(average * 100.0) / 100.0;
+        return average;
+    }
+}
+
